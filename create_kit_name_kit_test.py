@@ -20,6 +20,9 @@ def positive_assert(kit_body):
     assert kit_response.status_code == 201, "El status code del nuevo kit no es 201"
     #Comprueba que el campo authToken está en la respuesta y no está vacío
     assert kit_response.json()['user']['authToken'] != "", "El campo authToken está vacío"
+    #-----------CORRECCIONES DEL FEEDBACK--------------
+    #Comprueba que el campo "name" está en la respuesta y coincide con el name de la solicitud
+    assert kit_response.json()['name'] == kit_body
 #-----------------------------------------------------------------
 
 def negative_assert_code_400(kit_body):

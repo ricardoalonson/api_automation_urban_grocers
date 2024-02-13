@@ -9,11 +9,12 @@ def post_new_user(body):
                          headers=data.headers)
 
 #Función para obtener el authToken del nuevo usuario
+#--- CAMBIOS DEL FEEDBACK A MEJORAR ---
 def create_kit_token():
+    response = data.user_body.copy()
     response = post_new_user(data.user_body)
     data_response = response.json()
     return data_response["authToken"]
-
 
 #Función para crear un nuevo kit
 def post_new_client_kit(kit_body):
